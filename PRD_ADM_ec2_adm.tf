@@ -169,40 +169,40 @@ resource "aws_instance" "PRD-VPC-Bastion-PUB-1A" {
 #   }
 # }
 
-# data "aws_ami" "amzlinux2" {
-#   most_recent = true
-#   owners      = ["amazon"]
-#   name_regex  = "^amzn2-"
+data "aws_ami" "amzlinux2" {
+  most_recent = true
+  owners      = ["amazon"]
+  name_regex  = "^amzn2-"
 
-#   filter {
-#     name   = "name"
-#     values = ["amzn2-ami-kernel-*-gp2"]
-#   }
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-kernel-*-gp2"]
+  }
 
-#   filter {
-#     name   = "architecture"
-#     values = ["x86_64"]
-#   }
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
 
-#   filter {
-#     name   = "root-device-type"
-#     values = ["ebs"]
-#   }
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
+  }
 
-#   filter {
-#     name   = "virtualization-type"
-#     values = ["hvm"]
-#   }
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
 
 
-# }
+}
 
-# # Ubuntu 20.04 AMI 검색
-# data "aws_ami" "ubuntu" {
-#   most_recent = true
-#   owners      = ["099720109477"]  # Ubuntu 공식 AWS 계정 ID
-#   filter {
-#     name   = "name"
-#     values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
-#   }
-# }
+# Ubuntu 20.04 AMI 검색
+data "aws_ami" "ubuntu" {
+  most_recent = true
+  owners      = ["099720109477"] # Ubuntu 공식 AWS 계정 ID
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+  }
+}
